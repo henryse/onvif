@@ -1,8 +1,8 @@
 package ptz
 
 import (
-	"github.com/use-go/onvif/xsd"
-	"github.com/use-go/onvif/xsd/onvif"
+	"github.com/henryse/onvif/xsd"
+	"github.com/henryse/onvif/xsd/onvif"
 )
 
 type Capabilities struct {

@@ -6,10 +6,10 @@ package device
 
 import (
 	"context"
+	"github.com/henryse/onvif"
+	"github.com/henryse/onvif/device"
+	"github.com/henryse/onvif/sdk"
 	"github.com/juju/errors"
-	"github.com/use-go/onvif"
-	"github.com/use-go/onvif/sdk"
-	"github.com/use-go/onvif/device"
 )
 
 // Call_SetRemoteUser forwards the call to dev.CallMethod() then parses the payload of the reply as a SetRemoteUserResponse.

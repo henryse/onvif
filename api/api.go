@@ -1,7 +1,7 @@
 package api
 
 import (
-	"io/ioutil"
+	"io"
 	"net/http"
 	"os"
 	"path"
@@ -15,10 +15,10 @@ import (
 
 	"github.com/beevik/etree"
 	"github.com/gin-gonic/gin"
-	"github.com/use-go/onvif"
-	"github.com/use-go/onvif/gosoap"
-	"github.com/use-go/onvif/networking"
-	wsdiscovery "github.com/use-go/onvif/ws-discovery"
+	"github.com/henryse/onvif"
+	"github.com/henryse/onvif/gosoap"
+	"github.com/henryse/onvif/networking"
+	wsdiscovery "github.com/henryse/onvif/ws-discovery"
 )
 
 var (
@@ -148,7 +148,7 @@ func callNecessaryMethod(serviceName, methodName, acceptedData, username, passwo
 		return "", errors.Annotate(err, "SendSoap")
 	}
 
-	rsp, err := ioutil.ReadAll(servResp.Body)
+	rsp, err := io.ReadAll(servResp.Body)
 	if err != nil {
 		return "", errors.Annotate(err, "ReadAll")
 	}

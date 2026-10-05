@@ -2,14 +2,29 @@
 
 Simple management of onvif IP-devices cameras. onvif is an implementation of  ONVIF protocol for managing onvif IP devices. The purpose of this library is convenient and easy management of IP cameras and other devices that support ONVIF standard.
 
+This is a maintained fork of [use-go/onvif](https://github.com/use-go/onvif), which is no longer maintained.
+
+## Requirements
+
+- Go 1.27 or later
+
 ## Installation
 
 To install the library,  use **go get**:
 
-```go
-go get github.com/use-go/onvif
-
+```sh
+go get github.com/henryse/onvif@v0.1.0
 ```
+
+Or add it to your `go.mod`:
+
+```go
+require github.com/henryse/onvif v0.1.0
+```
+
+### Migrating from use-go/onvif
+
+Replace the import path `github.com/use-go/onvif` with `github.com/henryse/onvif` in your code, then run `go mod tidy`. The API is otherwise unchanged.
 
 ## Supported services
 

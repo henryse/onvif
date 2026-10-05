@@ -3,7 +3,7 @@ package onvif
 import (
 	"encoding/xml"
 	"errors"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/url"
 	"reflect"
@@ -11,10 +11,10 @@ import (
 	"strings"
 
 	"github.com/beevik/etree"
-	"github.com/use-go/onvif/device"
-	"github.com/use-go/onvif/gosoap"
-	"github.com/use-go/onvif/networking"
-	wsdiscovery "github.com/use-go/onvif/ws-discovery"
+	"github.com/henryse/onvif/device"
+	"github.com/henryse/onvif/gosoap"
+	"github.com/henryse/onvif/networking"
+	wsdiscovery "github.com/henryse/onvif/ws-discovery"
 )
 
 // Xlmns XML Scheam
@@ -104,7 +104,7 @@ func (dev *Device) GetDeviceParams() DeviceParams {
 }
 
 func readResponse(resp *http.Response) string {
-	b, err := ioutil.ReadAll(resp.Body)
+	b, err := io.ReadAll(resp.Body)
 	if err != nil {
 		panic(err)
 	}
@@ -148,7 +148,7 @@ func GetAvailableDevicesAtSpecificEthernetInterface(interfaceName string) ([]Dev
 func (dev *Device) getSupportedServices(resp *http.Response) error {
 	doc := etree.NewDocument()
 
-	data, err := ioutil.ReadAll(resp.Body)
+	data, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return err
 	}

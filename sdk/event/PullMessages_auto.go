@@ -6,10 +6,10 @@ package event
 
 import (
 	"context"
+	"github.com/henryse/onvif"
+	"github.com/henryse/onvif/event"
+	"github.com/henryse/onvif/sdk"
 	"github.com/juju/errors"
-	"github.com/use-go/onvif"
-	"github.com/use-go/onvif/sdk"
-	"github.com/use-go/onvif/event"
 )
 
 // Call_PullMessages forwards the call to dev.CallMethod() then parses the payload of the reply as a PullMessagesResponse.
